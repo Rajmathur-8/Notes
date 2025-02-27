@@ -506,6 +506,105 @@ System.out.println("Hello, World!");
 - `println()` prints the specified string followed by a new line.
 
 ---
+# Java Main Method - Detailed Explanation
+
+The `main` method in Java is the entry point of any Java application. It is where the program starts execution.
+
+---
+## **1. Syntax of Main Method**
+```java
+public static void main(String[] args)
+```
+Each keyword in this method has a specific meaning:
+
+| Keyword | Description |
+|---------|-------------|
+| **public** | Allows the method to be accessed from anywhere. |
+| **static** | Allows the method to be called without creating an instance of the class. |
+| **void** | Specifies that the method does not return any value. |
+| **main** | The standard method name recognized by JVM as the entry point. |
+| **String[] args** | Accepts command-line arguments as an array of Strings. |
+
+---
+## **2. Why is the Main Method `public static`?**
+- **`public`** – The method must be accessible by the JVM from outside the class.
+- **`static`** – Since no object is created before calling `main()`, it must be static so that JVM can call it directly.
+
+---
+## **3. Understanding `String[] args`**
+- `args` is an array of `String` values that store command-line arguments.
+- Example:
+  ```java
+  class MainExample {
+      public static void main(String[] args) {
+          for (String arg : args) {
+              System.out.println(arg);
+          }
+      }
+  }
+  ```
+  **Run the program with:**
+  ```sh
+  java MainExample Hello World
+  ```
+  **Output:**
+  ```
+  Hello
+  World
+  ```
+
+---
+## **4. Variations of `main` Method**
+While `public static void main(String[] args)` is the standard, Java allows some variations:
+
+| Variation | Description |
+|-----------|-------------|
+| `public static void main(String args[])` | Using `String args[]` instead of `String[] args`. |
+| `public static void main(String... args)` | Using varargs instead of an array. |
+| `static public void main(String[] args)` | Changing the order of `public static`. |
+
+However, removing any part (like `static` or `public`) will cause a runtime error.
+
+---
+## **5. What Happens If `main` Method is Missing?**
+If a Java program does not have a `main` method, the JVM throws an error:
+```sh
+Error: Main method not found in class MainExample
+```
+
+---
+## **6. Overloading the `main` Method**
+Java allows method overloading, but the JVM always calls the standard `main` method.
+```java
+class OverloadMain {
+    public static void main(String[] args) {
+        System.out.println("Standard main method");
+        main(5);
+    }
+    public static void main(int a) {
+        System.out.println("Overloaded main method: " + a);
+    }
+}
+```
+**Output:**
+```
+Standard main method
+Overloaded main method: 5
+```
+
+---
+## **7. Can We Have Multiple `main` Methods?**
+Yes, but only one per class with the exact signature `public static void main(String[] args)`.
+
+---
+## **8. Summary of `main` Method**
+- It is the entry point of Java applications.
+- It must be `public static void`.
+- Accepts command-line arguments via `String[] args`.
+- Can be overloaded but not removed.
+- Must be present for execution by JVM.
+
+---
 
 ## Java Syntax Key Elements
 
