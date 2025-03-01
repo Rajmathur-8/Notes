@@ -1163,7 +1163,7 @@ By understanding **Primary Key, Foreign Key, Candidate Key, and Super Key**, dat
 ## Introduction
 Functional dependency is a fundamental concept in a relational database management system (RDBMS). It defines the relationship between attributes in a table. It is represented as:
 
-\[ X \rightarrow Y \]
+$X \rightarrow Y$
 
 Where:
 - **X** is called the **determinant** (left side), and
@@ -1207,7 +1207,7 @@ Consider the table **Enrollment(StudentID, CourseID, StudentName)**:
 A **trivial functional dependency** occurs when the dependent attribute is already included in the determinant set.
 
 #### **Example:**
-\[ \{RollNo, Name\} \rightarrow \{Name\} \]
+$\{RollNo, Name\} \rightarrow \{Name\}$
 
 - Here, "Name" is already part of the left-hand side, making it a **trivial dependency**.
 
@@ -1217,7 +1217,7 @@ A **trivial functional dependency** occurs when the dependent attribute is alrea
 A **non-trivial functional dependency** occurs when the dependent attribute is not a part of the determinant.
 
 #### **Example:**
-\[ \{RollNo, Name\} \rightarrow \{DeptName\} \]
+$\{RollNo, Name\} \rightarrow \{DeptName\}$
 
 - "DeptName" is not part of the determinant, so it is a **non-trivial dependency**.
 
@@ -1227,10 +1227,10 @@ A **non-trivial functional dependency** occurs when the dependent attribute is n
 A **transitive dependency** occurs when an attribute depends on another attribute that is not a primary key.
 
 #### **Example:**
-\[ RollNo \rightarrow DeptName \] and \[ DeptName \rightarrow DeptBuilding \]
+$RollNo \rightarrow DeptName$ and $DeptName \rightarrow DeptBuilding$
 
 - Since **DeptName** is dependent on **RollNo**, and **DeptBuilding** is dependent on **DeptName**, we get a **transitive dependency**:
-  \[ RollNo \rightarrow DeptBuilding \]
+  $RollNo \rightarrow DeptBuilding$ 
 
 To remove transitive dependency, we create a separate table for departments.
 
@@ -1240,7 +1240,7 @@ To remove transitive dependency, we create a separate table for departments.
 A **multivalued dependency** occurs when the dependent attributes are independent of each other.
 
 #### **Example:**
-\[ RollNo \rightarrow \{Name, DeptName\} \]
+$RollNo \rightarrow \{Name, DeptName\}$
 
 - "Name" and "DeptName" are independent of each other but depend on "RollNo".
 - To remove **multivalued dependency**, we create separate tables for student names and department names.
